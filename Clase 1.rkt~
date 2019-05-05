@@ -22,23 +22,4 @@
                                  (else (cons (car lista) (eliminar valor (cdr lista))))
                                  ))
 
-(define (mayores pivot lista)(cond
-                               ((null? lista) '())
-                               ((< pivot (car lista)) (cons (car lista) (mayores pivot (cdr lista))))
-                               (else (mayores pivot (cdr lista)))))
-
-(define (menores pivot lista)(cond
-                               ((null? lista) '())
-                               ((> pivot (car lista)) (cons (car lista) (menores pivot (cdr lista))))
-                               (else (menores pivot (cdr lista)))))
-
-
-(define (qsrt lista)(cond
-                           ((> (length lista) 1) (helper (car lista) (cdr lista)))
-                           ((equal? (length lista) 1) lista)
-                           (else '())))
-
-(define (helper pivot lista)(append (qsrt (menores pivot lista)) (list pivot) (qsrt (mayores pivot lista))))
-
-
-
+(define (quicksort lista)(
